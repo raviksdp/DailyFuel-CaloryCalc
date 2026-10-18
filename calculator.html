@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f6f7f2">
+  <meta name="description" content="Find your estimated daily calorie needs for maintaining, losing, or gaining weight.">
+  <title>Calorie Calculator — Ravi | Daily Fuel</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="Daily Fuel with Ravi home"><span class="brand-icon">✳</span> dailyfuel<span class="brand-dot">.</span></a>
+    <nav class="site-nav" aria-label="Main navigation"><a href="index.html">Home</a><a href="calculator.html" aria-current="page">Calorie calculator <span aria-hidden="true">↗</span></a></nav>
+  </header>
+  <main>
+    <section class="intro">
+      <div class="eyebrow"><span></span> BUILT AROUND YOU</div>
+      <h1>Good days start<br>with the right <span>fuel.</span><svg viewBox="0 0 200 15" aria-hidden="true"><path d="M3 11 Q95 -3 195 7"/></svg></h1>
+      <p>Your body. Your pace. Find out how many calories you need<br class="desktop-break"> to feel good and move toward your goals.</p>
+      <div class="intro-stamp" aria-hidden="true"><svg viewBox="0 0 60 60"><path d="M32 6 14 34h15l-2 20 20-29H32z"/></svg><span>A little clarity.<br>A lot of possibility.</span></div>
+    </section>
+
+    <section class="calculator" aria-label="Daily calorie calculator">
+      <form id="calorie-form" class="form-panel">
+        <div class="panel-heading"><div><span class="step">01 / YOUR BASELINE</span><h2>Let’s get to know you.</h2></div><div class="unit-toggle" role="group" aria-label="Measurement units"><button type="button" class="active" data-unit="metric" aria-pressed="true">Metric</button><button type="button" data-unit="imperial" aria-pressed="false">Imperial</button></div></div>
+        <div class="field-row">
+          <div class="field"><label for="age">Age</label><div class="input-wrap"><input id="age" name="age" type="number" min="18" max="100" value="28" required inputmode="numeric"><span>years</span></div></div>
+          <fieldset class="field gender-field"><legend>Gender <span title="The equation uses sex-based coefficients to estimate resting energy needs." class="info" aria-label="The equation uses sex-based coefficients">i</span></legend><div class="gender-options"><label><input type="radio" name="gender" value="male" checked><span>Male</span></label><label><input type="radio" name="gender" value="female"><span>Female</span></label></div></fieldset>
+        </div>
+        <div class="field-row">
+          <div class="field"><label for="height">Height</label><div class="input-wrap"><input id="height" name="height" type="number" min="100" max="250" step="0.1" value="175" required inputmode="decimal"><span id="height-unit">cm</span></div></div>
+          <div class="field"><label for="weight">Weight</label><div class="input-wrap"><input id="weight" name="weight" type="number" min="30" max="350" step="0.1" value="70" required inputmode="decimal"><span id="weight-unit">kg</span></div></div>
+        </div>
+        <div class="field activity-field"><label for="activity">How active are you?</label><div class="select-wrap"><select id="activity" name="activity"><option value="1.2">Sedentary · little or no exercise</option><option value="1.375">Lightly active · 1–3 days / week</option><option value="1.55" selected>Moderately active · 3–5 days / week</option><option value="1.725">Very active · 6–7 days / week</option><option value="1.9">Extra active · physical job + training</option></select></div><p class="field-help">Think about your usual week, including workouts and daily movement.</p></div>
+        <button class="calculate-button" type="submit">Calculate my calories <span>↗</span></button>
+        <p class="privacy"><svg viewBox="0 0 16 16" aria-hidden="true"><rect x="3.5" y="7" width="9" height="7" rx="2"/><path d="M5.5 7V4a2.5 2.5 0 0 1 5 0v3"/></svg> Just a calculation. Your details stay in your browser.</p>
+      </form>
+
+      <div class="results-panel" id="results" aria-live="polite" aria-atomic="true">
+        <div class="results-top"><span class="step">02 / YOUR DAILY FUEL</span><span class="result-status"><span></span> YOUR ESTIMATE</span></div>
+        <div class="maintenance"><span class="result-label">To maintain your weight</span><div class="main-number"><span id="maintain">2,571</span><span>kcal / day</span></div><p>Your sweet spot for keeping things steady.</p></div>
+        <div class="goal-cards">
+          <div class="goal-card"><div class="goal-icon">↘</div><h3>Lose weight</h3><div class="goal-number" id="lose">2,185</div><span class="cal-unit">kcal / day</span><div class="goal-tag">15% calorie deficit</div></div>
+          <div class="goal-card"><div class="goal-icon">↗</div><h3>Gain weight</h3><div class="goal-number" id="gain">2,828</div><span class="cal-unit">kcal / day</span><div class="goal-tag">10% calorie surplus</div></div>
+        </div>
+        <div class="result-insight"><span>✦</span><p>Small steps, lasting progress.<br><strong>Consistency matters more than perfection.</strong></p></div>
+        <p class="result-footnote" id="result-context">Based on your details and a moderately active lifestyle.</p>
+      </div>
+    </section>
+
+    <section class="explainers" id="how-it-works" aria-label="About your estimate">
+      <article><span class="detail-icon">⌁</span><div><h3>A little science behind the numbers</h3><p>We use the <a href="https://pubmed.ncbi.nlm.nih.gov/2305711/" target="_blank" rel="noopener noreferrer">Mifflin–St Jeor equation</a> to estimate resting calorie needs, then account for your activity level.</p></div></article>
+      <article><span class="detail-icon">◎</span><div><h3>A starting point, not a strict rule</h3><p>These are estimates for adults. Your needs are unique—adjust with your progress, energy levels, and professional guidance.</p></div></article>
+      <article><span class="detail-icon">♡</span><div><h3>More than a number</h3><p>Balanced meals, good sleep, and movement you enjoy all play a part. Give yourself room to find what works.</p></div></article>
+    </section>
+    <details class="method"><summary>How are my results calculated?</summary><p>Resting energy = 10 × weight (kg) + 6.25 × height (cm) − 5 × age + a sex-based constant (+5 for male, −161 for female). Maintenance uses your activity multiplier: 1.2, 1.375, 1.55, 1.725, or 1.9. Weight-loss and weight-gain estimates apply a 15% deficit and a 10% surplus. Results are rounded to the nearest calorie and are not a prediction of weight change. This adult calculator is not intended for pregnancy or breastfeeding.</p></details>
+  </main>
+  <footer><span class="footer-brand">dailyfuel.</span><span>A little more informed. A little more you.</span><span>Made for your everyday.</span></footer>
+</body>
+</html>
